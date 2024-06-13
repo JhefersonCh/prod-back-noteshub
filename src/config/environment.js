@@ -9,6 +9,7 @@ module.exports = {
     DB_USER: process.env.DB_USER,
     DB_PASSWORD: process.env.DB_PASSWORD,
     DB_HOSTPG: process.env.DB_HOSTPG,
-    DB_PORT: process.env.DB_PORT
+    DB_PORT: process.env.DB_PORT,
+    HOST: process.env.HOST
   }
 }

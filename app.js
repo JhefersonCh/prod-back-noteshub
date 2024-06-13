@@ -5,9 +5,11 @@ const { sequelize } = require("./src/config");
 const userRouter = require("./src/Routes/user.routes");
 const authRouter = require("./src/Routes/auth.routes");
 const noteRouter = require("./src/Routes/note.routes");
+const environment = require("./src/config/environment");
 
 const app = express();
 const port = process.env.PORT || 3000;
+const host = environment.config.HOST || '0.0.0.0';
 
 app.use(express.json());
 app.use(cors());
@@ -30,7 +32,7 @@ sequelize
   })
   .then(() => {
     console.log("Sync models");
-    app.listen(port, () => {
+    app.listen(port, host, () => {
       console.log(`Server listen on http://localhost:${port}`);
     });
   })
