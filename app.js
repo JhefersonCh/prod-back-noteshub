@@ -5,7 +5,7 @@ const { sequelize } = require("./src/config");
 const userRouter = require("./src/Routes/user.routes");
 const authRouter = require("./src/Routes/auth.routes");
 const noteRouter = require("./src/Routes/note.routes");
-const { config } = require("./environment");
+const { config } = require("./src/config/environment");
 
 const app = express();
 const port = config.PORT || 3000;
