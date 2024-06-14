@@ -1,5 +1,5 @@
 const express = require('express');
-const noteController = require('../controllers/noteController');
+const NoteController = require('../controllers/noteController');
 const multer = require('multer');
 const router = express.Router();
 const uuid = require("uuid");
@@ -29,10 +29,10 @@ const upload = multer({
   }
 });
 
-router.post('/note', [verifyToken, upload.single('image')], noteController.createNote);
-router.patch('/note', [verifyToken, upload.single('image')], noteController.updateNote);
-router.get('/note/:userId', [verifyToken], noteController.getAllByUserId);
-router.delete('/note', [verifyToken], noteController.deleteNote);
-router.patch('/note/update-status', [verifyToken], noteController.changeNoteState);
+router.post('/note', [verifyToken, upload.single('image')], NoteController.createNote);
+router.patch('/note', [verifyToken, upload.single('image')], NoteController.updateNote);
+router.get('/note/:userId', [verifyToken], NoteController.getAllByUserId);
+router.delete('/note', [verifyToken], NoteController.deleteNote);
+router.patch('/note/update-status', [verifyToken], NoteController.changeNoteState);
 
 module.exports = router;
