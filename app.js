@@ -2,9 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { sequelize } = require("./src/config");
-const userRouter = require("./src/Routes/user.routes");
-const authRouter = require("./src/Routes/auth.routes");
-const noteRouter = require("./src/Routes/note.routes");
+const userRouter = require("./src/Routes/userRoutes");
+const authRouter = require("./src/Routes/authRoutes");
+const noteRouter = require("./src/Routes/noteRroutes");
 
 const app = express();
 const port = process.env.PORT || 3000;
