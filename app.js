@@ -5,10 +5,12 @@ const { sequelize } = require("./src/config");
 const userRouter = require("./src/Routes/user.routes");
 const authRouter = require("./src/Routes/auth.routes");
 const noteRouter = require("./src/Routes/note.routes");
-const environment = require("./src/config/environment");
+const { config } = require("./environment");
 
 const app = express();
-const port = environment.config.PORT || 3000;
+const port = config.PORT || 3000;
+
+console.log(port);
 
 app.use(express.json());
 app.use(cors());
