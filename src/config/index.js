@@ -1,17 +1,23 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize } = require('sequelize');
 
-const database = "railway";
-const username = "postgres";
-const password = "FdmMbKIfsSNoEJtDAXuOKVakjxkPTFuh";
-const host = "viaduct.proxy.rlwy.net";
-const port = "30445"
+const database = process.env.DB_DATABASE;
+const username = process.env.DB_USER;
+const password = process.env.DB_PASSWORD;
+const host = process.env.DB_HOSTPG;
+const port = process.env.DB_PORT;
 
 const sequelize = new Sequelize(database, username, password, {
-	host: host,
+  host: host,
   port: port,
-	dialect: "postgresql"
+  dialect: 'postgresql',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
 });
 
 module.exports = {
-	sequelize,
+  sequelize,
 };
